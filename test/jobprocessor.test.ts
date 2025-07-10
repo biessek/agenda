@@ -254,15 +254,18 @@ describe('JobProcessor', () => {
 
 		await agenda.start();
 
-		let runningJobs = 0;
-		const allJobsStarted = new Promise(async resolve => {
-			do {
-				runningJobs = (await agenda.getRunningStats()).runningJobs as number;
-				await new Promise(wait => {
-					setTimeout(wait, 50);
-				});
-			} while (runningJobs < 90); // @todo Why not 100?
-			resolve('all started');
+		let runningJobs: number;
+		const allJobsStarted = new Promise(resolve => {
+			const checkJobs = async () => {
+				do {
+					runningJobs = (await agenda.getRunningStats()).runningJobs as number;
+					await new Promise(wait => {
+						setTimeout(wait, 50);
+					});
+				} while (runningJobs < 90);
+				resolve('all started');
+			};
+			checkJobs();
 		});
 
 		expect(
