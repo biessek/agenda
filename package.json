@@ -1,6 +1,6 @@
 {
-  "name": "agenda",
-  "version": "5.0.0",
+  "name": "@biessek/agenda",
+  "version": "5.1.0",
   "description": "Light weight job scheduler for Node.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.20.1"
   },
   "scripts": {
     "release": "npm run build && standard-version",
@@ -27,15 +27,15 @@
     "mocha-debug-all": "DEBUG=agenda:** mocha --reporter spec -b",
     "docs": "typedoc --out docs/agenda/6.x src/index.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/biessek/agenda.git"
+  },
   "config": {
     "blanket": {
       "pattern": "lib",
       "data-cover-never": "node_modules"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/hokify/agenda"
   },
   "keywords": [
     "job",
@@ -45,10 +45,10 @@
     "scheduler",
     "runner"
   ],
-  "author": "Simon Tretter <simon.tretter@hokify.com>",
+  "author": "biessek",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hokify/agenda/issues"
+    "url": "https://github.com/biessek/agenda/issues"
   },
   "dependencies": {
     "cron-parser": "^4.5.0",
@@ -56,7 +56,7 @@
     "debug": "~4.3.4",
     "human-interval": "~2.0.1",
     "luxon": "^3.2.1",
-    "mongodb": "^4.8.1"
+    "mongodb": "~6.17.0"
   },
   "devDependencies": {
     "eslint": "^8.21.0",
@@ -73,7 +73,7 @@
     "chai": "^4.3.6",
     "delay": "5.0.0",
     "mocha": "10.0.0",
-    "mongodb-memory-server": "^8.8.0",
+    "mongodb-memory-server": "10.1.4",
     "nyc": "^15.1.0",
     "sinon": "14.0.0",
     "standard-version": "^9.5.0",
